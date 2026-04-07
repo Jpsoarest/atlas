@@ -4,7 +4,7 @@ class Factory extends Phaser.Scene {
   constructor() { super({ key: 'Factory' }); }
 
   preload() {
-    this.load.audio('bgm_industrial', 'assets/Industrial Theme Music/industrial.mp3');
+    this.load.audio('bgm_industrial', 'assets/Music/industrial.mp3');
 
     this.load.image('iron', 'assets/img/iron/iron.png');
     this.load.image('coal', 'assets/img/coal/coal.png');
