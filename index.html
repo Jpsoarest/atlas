@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATLAS - Factory Empire</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div id="top-bar">
+            <div class="logo">ATLAS</div>
+            <div class="res"><span class="l" id="r-raw-l">Matéria-prima</span> <span class="v" id="r-raw">0</span></div>
+            <div class="res"><span class="l" id="r-mon-l">Créditos</span> <span class="v" id="r-m">0</span></div>
+            <div class="res"><span class="l" id="r-inv-l">Estoque</span> <span class="v" id="r-inv">0</span></div>
+            <div class="era-pill" title="Nível da Era">
+                <span id="era-name">Garagem</span>
+                <div class="ep">
+                    <div class="epf" id="era-bar" style="width:0%"></div>
+                </div>
+            </div>
+            <div class="res" style="background:rgba(255,200,50,.1); border-color:rgba(255,200,50,.2)"><span
+                    class="l">⭐</span> <span class="v" id="r-s" style="color:#ffd740">0</span></div>
+            <button id="pbtn" class="pbtn" onclick="showPM()">⟳ PRESTÍGIO</button>
+        </div>
+
+        <div id="news-ticker">
+            <div class="ticker-label" id="ticker-label">NEXUS-FEED</div>
+            <div class="ticker-track">
+                <div class="ticker-msg" id="ticker-text">Iniciando sistema ATLAS...</div>
+            </div>
+        </div>
+
+        <div id="main">
+            <div id="game-wrap">
+                <div class="scanline"></div>
+                <div id="dlg-toast"></div>
+                <div id="hud-click">
+                    <button id="cbtn" onclick="doClick(event)">⚡</button>
+                    <div class="ci-box">
+                        <div class="ci-col">
+                            <div class="cl">BOOST</div>
+                            <div class="cv" id="h-spd">1.0x</div>
+                            <div class="cl" id="h-cap" style="font-size:9px;color:#5a6888">max 3x</div>
+                        </div>
+                        <div class="ci-col" style="align-items:flex-end">
+                            <div class="cl">HEAT <span id="h-state" style="color:#2fffb0">OK</span></div>
+                            <div class="heat-bar">
+                                <div class="heat-fill" id="h-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="rpanel">
+                <div class="tabs">
+                    <div class="tab unlocked act" data-t="prod" onclick="swT(this)">🏭</div>
+                    <div class="tab" data-t="mkt" onclick="swT(this)">🌍</div>
+                    <div class="tab" data-t="up" onclick="swT(this)">⬆️</div>
+                    <div class="tab" data-t="stats" onclick="swT(this)">📊</div>
+                    <div class="tab" data-t="artifacts" onclick="swT(this)">🏺</div>
+                    <div class="tab" data-t="rivalry" onclick="swT(this)">⚔️</div>
+                    <div class="tab" data-t="personnel" onclick="swT(this)">👔</div>
+                    <div class="tab" data-t="arch" onclick="swT(this)">📐</div>
+                    <div class="tab" data-t="bm" onclick="swT(this)">🕳️</div>
+                    <div class="tab unlocked" data-t="cfg" onclick="swT(this)">⚙️</div>
+                </div>
+
+                <div id="p-prod" class="pc act"></div>
+                <div id="p-mkt" class="pc"></div>
+                <div id="p-up" class="pc"></div>
+                <div id="p-stats" class="pc"></div>
+                <div id="p-artifacts" class="pc"></div>
+                <div id="p-rivalry" class="pc"></div>
+                <div id="p-personnel" class="pc"></div>
+                <div id="p-arch" class="pc"></div>
+                <div id="p-bm" class="pc"></div>
+                <div id="p-cfg" class="pc"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tree-modal" class="mo">
+        <div class="mb" style="max-width:700px">
+            <button class="close-modal"
+                onclick="document.getElementById('tree-modal').classList.remove('show'); if(scene) scene.rebuildFactory();">×</button>
+            <h2 id="pm-title">ÁRVORE DE PRESTÍGIO</h2>
+            <p id="tree-info"></p>
+            <div class="tree-container" id="p-pr"></div>
+        </div>
+    </div>
+
+    <div id="branch-popup"></div>
+
+    <script src="i18n.js"></script>
+    <script src="data.js"></script>
+    <script src="state.js"></script>
+    <script src="audio.js"></script>
+    <script src="gridLogic.js"></script>
+    <script src="artifacts.js"></script>
+    <script src="architect.js"></script>
+    <script src="personnel.js"></script>
+    <script src="rivalry.js"></script>
+    <script src="blackmarket.js"></script>
+    <script src="contracts.js"></script>
+    <script src="expeditions.js"></script>
+    <script src="market.js"></script>
+    <script src="newsticker.js"></script>
+    <script src="ui.js"></script>
+    <script src="factoryScene.js"></script>
+    <script src="main.js"></script>
+    <script src="minigame.js"></script>
+</body>
+
+</html>
